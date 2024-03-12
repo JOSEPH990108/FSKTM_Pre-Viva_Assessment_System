@@ -1,0 +1,232 @@
+<!-- Add Student Modal -->
+<div class="modal fade" id="addstudentModal" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="addstudentModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-xl">
+    <div class="modal-content">
+      <div class="modal-header">
+        <div class="header-title">
+            <h4 class="modal-title" id="addstudentModalLabel"><strong>ADD STUDENT</strong></h4>
+        </div>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form id="add_student_form" name="add_student_form" class="form-row" action="<?= ROOT ?>includes/add_student.inc.php" method="POST" onsubmit="return checkStudent();">
+            <h5 class="form-group col-md-12 mb-3 text-dark">Personal Information</h5>
+            <div class="form-group col-md-6">
+                <label for="userid">User ID</label>
+                <input type="text" name="userid" class="form-control" id="userid" placeholder="Staff ID OR Matric NO">
+                <i class="las la-check-circle"></i>
+                <i class="las la-exclamation-circle"></i>
+                <small>Error Message</small>
+            </div>
+            <div class="form-group col-md-6">
+                <label for="sex">Sex</label>
+                <select name="sex" class="form-control" id="sex">
+                    <option value=""></option>    
+                    <option value="MALE">MALE</option>
+                    <option value="FEMALE">FEMALE</option>
+                </select>
+                <i class="las la-check-circle"></i>
+                <i class="las la-exclamation-circle"></i>
+                <small>Error Message</small>
+            </div>
+            <div class="form-group col-md-12">
+                <label for="name">Name</label>
+                <input type="text" name="name" class="form-control" id="name" placeholder="Name">
+                <i class="las la-check-circle"></i>
+                <i class="las la-exclamation-circle"></i>
+                <small>Error Message</small>
+            </div>
+            <div class="form-group col-md-6">
+                <label for="email">Email</label>
+                <input type="email" name="email" class="form-control" id="email" placeholder="name@example.com">
+                <i class="las la-check-circle"></i>
+                <i class="las la-exclamation-circle"></i>
+                <small>Error Message</small>
+            </div>
+            <div class="form-group col-md-6">
+                <label for="phone">Phone No</label>
+                <input type="text" name ="phone" class="form-control" id="phone" placeholder="Phone Number">
+                <i class="las la-check-circle"></i>
+                <i class="las la-exclamation-circle"></i>
+                <small>Error Message</small>
+            </div>
+            <div class="form-group col-md-6">
+                <label for="ic">IC</label>
+                <input type="text" name="ic" class="form-control" id="ic" placeholder="IC Number">
+                <i class="las la-check-circle"></i>
+                <i class="las la-exclamation-circle"></i>
+                <small>Error Message</small>
+            </div>
+            <div class="form-group col-md-6">
+                <label for="passport">Passport</label>
+                <input type="text" name="passport" class="form-control" id="passport" placeholder="Passport">
+                <i class="las la-check-circle"></i>
+                <i class="las la-exclamation-circle"></i>
+                <small>Error Message</small>
+            </div>
+            <div class="form-group col-md-4">
+                <label for="race">Race</label>
+                <select name="race" class="form-control" id="race">
+                    <option value=""></option>   
+                    <option value="CHINESE">CHINESE</option>
+                    <option value="INDIA">INDIA</option>
+                    <option value="MALAY">MALAY</option> 
+                    <option value="OTHERS">OTHERS</option>
+                </select>
+                <i class="las la-check-circle"></i>
+                <i class="las la-exclamation-circle"></i>
+                <small>Error Message</small>
+            </div>
+            <div class="form-group col-md-4">
+                <label for="religion">Religion</label>
+                <select name="religion" class="form-control" id="religion">
+                    <option value=""></option>   
+                    <option value="BUDDHIST">BUDDHIST</option> 
+                    <option value="CHRISTIAN">CHRISTIAN</option>
+                    <option value="HINDU">HINDU</option>
+                    <option value="MUSLIM">MUSLIM</option>
+                    <option value="NO RELIGIONS">NO RELIGIONS</option>
+                    <option value="OTHERS">OTHERS</option>
+                </select>
+                <i class="las la-check-circle"></i>
+                <i class="las la-exclamation-circle"></i>
+                <small>Error Message</small>
+            </div>
+            <div class="form-group col-md-4">
+                <label for="status">Status</label>
+                <select name="status" class="form-control" id="status">
+                    <option value=""></option>    
+                    <option value="1">ACTIVE</option>
+                    <option value="0">INACTIVE</option>
+                </select>
+                <i class="las la-check-circle"></i>
+                <i class="las la-exclamation-circle"></i>
+                <small>Error Message</small>
+            </div>
+            <div class="form-group col-md-6">
+                <label for="country">Country</label>
+                <?php
+                        echo "<select name='country' class='form-control' id='country'>";
+                        foreach($countries_list as $c_option){
+                            echo "<option value='$c_option'>$c_option</option>";
+                        }
+                        echo "</select>"
+                    ?>
+                <i class="las la-check-circle"></i>
+                <i class="las la-exclamation-circle"></i>
+                <small>Error Message</small>
+            </div>
+            <div class="form-group col-md-6">
+                <label for="nationality">Nationality</label>
+                <?php
+                        echo "<select name='nationality' class='form-control' id='nationality'>";
+                        foreach($national_option as $n_option){
+                            echo "<option value='$n_option'>$n_option</option>";
+                        }
+                        echo "</select>"
+                    ?>
+                <i class="las la-check-circle"></i>
+                <i class="las la-exclamation-circle"></i>
+                <small>Error Message</small>
+            </div>
+            <div class="form-group col-md-6">
+                <label for="password">Password</label>
+                <input type="password" name="password" class="form-control" id="password" placeholder="">
+                <i class="las la-check-circle"></i>
+                <i class="las la-exclamation-circle"></i>
+                <small>Error Message</small>
+            </div>
+            <div class="form-group col-md-6">
+                <label for="usertype">User Type</label>
+                <input type="text" name="usertype" class="form-control" id="usertype" value="STUDENT" readonly>
+                <i class="las la-check-circle"></i>
+                <i class="las la-exclamation-circle"></i>
+                <small>Error Message</small>
+            </div>
+            <h5 class="form-group col-md-12 mb-3 text-dark">Academic Information</h5>
+            <div class="form-group col-md-12">
+                    <label for="faculty">Faculty</label>
+                    <?php
+                            echo "<select name='faculty' class='form-control' id='faculty'>";
+                            foreach($faculty_option as $f_option){
+                                echo "<option value='$f_option'>$f_option</option>";
+                            }
+                            echo "</select>";
+                    ?>
+                    <i class="las la-check-circle"></i>
+                    <i class="las la-exclamation-circle"></i>
+                    <small>Error Message</small>
+                </div>
+                <div class="form-group col-md-12">
+                    <label for="levelofstudy">Level of Study</label>
+                    <select name="levelofstudy" class="form-control" id="levelofstudy">
+                        <option value=""></option>    
+                        <option value="MASTER">MASTER</option>
+                        <option value="DOCTOR OF PHILOSOPHY">DOCTOR OF PHILOSOPHY</option>
+                    </select>
+                    <i class="las la-check-circle"></i>
+                    <i class="las la-exclamation-circle"></i>
+                    <small>Error Message</small>
+                </div>
+                <div class="form-group col-md-12">
+                    <label for="programme">Programme</label>
+                    <?php
+                            echo "<select name='programme' class='form-control' id='programme'>";
+                            foreach($programme_option as $p_option){
+                                echo "<option value='$p_option'>$p_option</option>";
+                            }
+                            echo "</select>";
+                    ?>
+                    <i class="las la-check-circle"></i>
+                    <i class="las la-exclamation-circle"></i>
+                    <small>Error Message</small>
+                </div>
+                <div class="form-group col-md-12">
+                    <label for="research_title">Research Title</label>
+                    <input type="text" name="research_title" class="form-control" id="research_title">
+                    <i class="las la-check-circle"></i>
+                    <i class="las la-exclamation-circle"></i>
+                    <small>Error Message</small>
+                </div>
+                <div class="form-group col-md-12">
+                    <label for="supervisor">Supervisor</label>
+                    <?php
+                        echo "<select name='supervisor' class='form-control' id='supervisor' >";
+                        echo "<option selected disable></option>";
+                        $sql = "SELECT tbl_user.name, tbl_user.user_id, tbl_staff.designation, tbl_staff.field FROM tbl_user
+                                INNER JOIN tbl_staff ON tbl_user.user_id = tbl_staff.user_id
+                                ORDER BY tbl_staff.field ASC, tbl_staff.designation ASC, tbl_user.name ASC;";
+                        $stmt =  mysqli_stmt_init($conn);
+                        if(!mysqli_stmt_prepare($stmt, $sql)){
+                            //Redirect to login page
+                            header("Location: " . ROOT);
+                            exit();
+                        }
+                        else{
+                            mysqli_stmt_execute($stmt);
+                            $result = mysqli_stmt_get_result($stmt);
+                            while($row = mysqli_fetch_assoc($result)){
+                                $name = $row['name'];
+                                $staff_id = $row['user_id'];
+                                $designation = $row['designation'];
+                                $field = $row['field'];
+                                echo "<option value='$staff_id'>$name - $field ($designation)</option>";
+                            }
+                            echo "</select>";
+                        }
+                        ?>
+                    <i class="las la-check-circle"></i>
+                    <i class="las la-exclamation-circle"></i>
+                    <small>Error Message</small>
+                </div>
+            <div class="col-md-12 modal-footer">
+                <button type="button" id="cancelbtn" name="cancelbtn" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+                <button type="submit" id="submitbtn" name="submitbtn" class="btn btn-success add_user_btn">Submit</button>
+            </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
