@@ -2,7 +2,7 @@
 Welcome to the UTHM Faculty of Computer Science and Information Technology (FSKTM) Pre-Viva Assessment System! Our platform is meticulously crafted to facilitate the pre-viva assessment process for postgraduates.
 
 ## System Demo
-https://drive.google.com/file/d/1nPAdNjKgpQ7MJ_Vo3TIr4zGQrFi3Rc_8/view?usp=sharing(https://drive.google.com/file/d/1nPAdNjKgpQ7MJ_Vo3TIr4zGQrFi3Rc_8/view?usp=sharing)
+[Demo](https://drive.google.com/file/d/1nPAdNjKgpQ7MJ_Vo3TIr4zGQrFi3Rc_8/view?usp=sharing)
 
 ## System Images
 ![Login Page](assets/system_images/Login_Page.jpg)
