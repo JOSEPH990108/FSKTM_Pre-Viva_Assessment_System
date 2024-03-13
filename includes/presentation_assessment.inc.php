@@ -129,10 +129,23 @@
                 $thesis_total_mark = 0;
                 $presentation_total_mark = 0;
                 //Get thesis assessment result details
-                $sql5 ="SELECT sup.user_id AS supervisor, exa.examiner1, exa.examiner2 FROM (((tbl_application a
-                        INNER JOIN tbl_student stu ON a.student_id = stu.student_id)
-                        INNER JOIN tbl_supervisor sup ON a.student_id = sup.student_id)
-                        INNER JOIN tbl_examiner exa ON a.application_id = exa.application_id)
+                $sql5 ="SELECT sup.user_id AS supervisor,
+                            CASE 
+                                WHEN e1.examiner_id IS NOT NULL THEN e1.user_id ELSE NULL 
+                            END AS examiner1,
+                            CASE 
+                                WHEN e2.examiner_id IS NOT NULL THEN e2.user_id ELSE NULL 
+                            END AS examiner2
+                        FROM 
+                            tbl_application a
+                        INNER JOIN 
+                            tbl_student stu ON a.student_id = stu.student_id
+                        INNER JOIN 
+                            tbl_supervisor sup ON a.student_id = sup.student_id
+                        LEFT JOIN 
+                            (SELECT * FROM tbl_examiner WHERE examiner_id = 1) e1 ON a.application_id = e1.application_id
+                        LEFT JOIN 
+                            (SELECT * FROM tbl_examiner WHERE examiner_id = 2) e2 ON a.application_id = e2.application_id
                         WHERE a.application_id = ?;";
                 $stmt = mysqli_stmt_init($conn);
                                         
