@@ -4,6 +4,20 @@ Welcome to the UTHM Faculty of Computer Science and Information Technology (FSKT
 ## System Demo
 https://drive.google.com/file/d/1nPAdNjKgpQ7MJ_Vo3TIr4zGQrFi3Rc_8/view?usp=sharing(https://drive.google.com/file/d/1nPAdNjKgpQ7MJ_Vo3TIr4zGQrFi3Rc_8/view?usp=sharing)
 
+## System Images
+![Login Page](assets/system_images/Login_Page.jpg)
+![Admin Dashboard](assets/system_images/Admin_Dashboard.jpg)
+![Acadedmic Staff Dashboard](assets/system_images/Academic_Staff_Dashboard.jpg)
+![Student Dashboard](assets/system_images/Student_Dashboard.jpg)
+![Apply Pre-Viva](assets/system_images/Apply_Pre_Viva.jpg)
+![Accept Pre-Viva](assets/system_images/Accept_Pre_Viva.jpg)
+![Admin Approve Pre-Viva](assets/system_images/Admin_Approve_Pre_Viva.jpg)
+![Confirm As Examiner Invitation](assets/system_images/Confirm-asExaminer_Invitation.jpg)
+![Thesis Assessment](assets/system_images/Thesis_Assessment.jpg)
+![Presentation Assessment](assets/system_images/Presentation_Assessment.jpg)
+![Overall Pre-Viva Assessment](assets/system_images/Overall_Pre_Viva_Assessment.jpg)
+![Report Page](assets/system_images/Analysing_Report.jpg)
+
 ## Table of Contents
 - [FSKTM PRE-VIVA ASSESSMENT SYSTEM](#fsktm-pre-viva-assessment-system)
 - [Introduction](#introduction)
@@ -220,14 +234,15 @@ CREATE TABLE tbl_presentation_result (
 • Open your web browser and navigate to http://localhost/website_folder_name/, replacing "website_folder_name" with the name of the folder containing the website files.
 (http://localhost/website_folder_name - Port:80, http://localhost:8080/website_folder_name - Port:8080)
 
-# Remarks
-### Run the first_time_login.php before start using the system
-•  Run http://localhost/website_folder_name/first_time_login.php to initialize the Admin user data.
+> [!NOTE]
+> #### Run the first_time_login.php before start using the system
+> •  Run http://localhost/website_folder_name/first_time_login.php to initialize the Admin user data.
 
-### Update CONSTANT PROTOCOL inside the "dbh.inc.php" at line 17
-• If you're using localhost, define('PROTOCOL', 'http'). If you're using a live hosting server, define('PROTOCOL', 'https')
-
-### Update $path inside the "dbh.inc.php" at line 21
-• If Apache Port:80 => $path = str_replace($_SERVER['DOCUMENT_ROOT'], "", $path);
-
-• If Apache Port:8080 => $path = str_replace($_SERVER['DOCUMENT_ROOT'], ":8080", $path);
+> [!IMPORTANT]
+> #### Update CONSTANT PROTOCOL inside the "dbh.inc.php" at line 17
+> • If you're using localhost, define('PROTOCOL', 'http'). If you're using a live hosting server, define('PROTOCOL', 'https')
+>
+> #### Update $path inside the "dbh.inc.php" at line 21
+>• If Apache Port:80 => $path = str_replace($_SERVER['DOCUMENT_ROOT'], "", $path);
+>
+> • If Apache Port:8080 => $path = str_replace($_SERVER['DOCUMENT_ROOT'], ":8080", $path);
